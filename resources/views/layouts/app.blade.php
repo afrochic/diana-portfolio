@@ -19,7 +19,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="{{ asset('assets/css/portfolio.css') }}">
+  <link rel="stylesheet" href="{{ secure_asset('assets/css/portfolio.css') }}">
 </head>
 <body class="bg-slate-950 text-slate-100 font-[Poppins] antialiased">
 
@@ -74,6 +74,6 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="{{ asset('assets/js/portfolio.js') }}"></script>
+  <script src="{{ secure_asset('assets/js/portfolio.js') }}"></script>
 </body>
 </html>
