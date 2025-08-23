@@ -2,7 +2,7 @@
 @section('title','Diana Musee | Software Engineer · UI/UX')
 @section('content')
 
-<!-- Hero with particles canvas -->
+<!-- Hero Section -->
 <section class="relative min-h-[88vh] flex items-center justify-center overflow-hidden">
   <canvas id="particles" class="absolute inset-0"></canvas>
   <div class="relative z-10 max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
@@ -28,6 +28,7 @@
   </div>
 </section>
 
+<!-- About Section -->
 <section id="about" class="py-20">
   <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-start">
     <div class="p-1 rounded-3xl bg-gradient-to-br from-[var(--accent)]/40 to-cyan-500/30">
@@ -59,75 +60,57 @@
   </div>
 </section>
 
+<!-- Experience Section -->
 <section id="experience" class="py-20">
   <div class="max-w-6xl mx-auto px-4">
     <h2 class="text-2xl font-semibold mb-10">Experience</h2>
     <div class="space-y-6">
+      @foreach([
+        ['title'=>'Software Developer / Graphic Designer — Pathways Technologies','time'=>'Mar 2023 – Present · Nairobi, Kenya','points'=>['Python/Django, Java, SQL; scalable systems.','Kenya Red Cross chatbot; boosted engagement.','Power BI dashboards; predictive/prescriptive analytics.']],
+        ['title'=>'Software Developer Intern — CorkBrick Europe (Remote)','time'=>'May 2022 – Nov 2022','points'=>['Unity game dev; auth/inventory; UI/UX in Figma.']],
+        ['title'=>'Embedded Systems Intern — Emertxe (Remote)','time'=>'Feb 2022 – May 2022','points'=>['IoT simulation for smart washer; sensor analytics.']],
+        ['title'=>'IT Officer Intern — Office of the Attorney General (Kenya)','time'=>'Feb 2021 – Apr 2021','points'=>['Laravel records system; wireframes; IT support.']]
+      ] as $exp)
       <div class="timeline-card">
         <div>
-          <h3 class="font-semibold">Software Developer / Graphic Designer — Pathways Technologies</h3>
-          <p class="text-slate-400 text-sm">Mar 2023 – Present · Nairobi, Kenya</p>
+          <h3 class="font-semibold">{{$exp['title']}}</h3>
+          <p class="text-slate-400 text-sm">{{$exp['time']}}</p>
         </div>
         <ul class="mt-3 text-slate-300 text-sm list-disc pl-5 space-y-1">
-          <li>Python/Django, Java, SQL; scalable systems.</li>
-          <li>Kenya Red Cross chatbot; boosted engagement.</li>
-          <li>Power BI dashboards; predictive/prescriptive analytics.</li>
+          @foreach($exp['points'] as $point)
+          <li>{{$point}}</li>
+          @endforeach
         </ul>
       </div>
-      <div class="timeline-card">
-        <div>
-          <h3 class="font-semibold">Software Developer Intern — CorkBrick Europe (Remote)</h3>
-          <p class="text-slate-400 text-sm">May 2022 – Nov 2022</p>
-        </div>
-        <ul class="mt-3 text-slate-300 text-sm list-disc pl-5 space-y-1">
-          <li>Unity game dev; auth/inventory; UI/UX in Figma.</li>
-        </ul>
-      </div>
-      <div class="timeline-card">
-        <div>
-          <h3 class="font-semibold">Embedded Systems Intern — Emertxe (Remote)</h3>
-          <p class="text-slate-400 text-sm">Feb 2022 – May 2022</p>
-        </div>
-        <ul class="mt-3 text-slate-300 text-sm list-disc pl-5 space-y-1">
-          <li>IoT simulation for smart washer; sensor analytics.</li>
-        </ul>
-      </div>
-      <div class="timeline-card">
-        <div>
-          <h3 class="font-semibold">IT Officer Intern — Office of the Attorney General (Kenya)</h3>
-          <p class="text-slate-400 text-sm">Feb 2021 – Apr 2021</p>
-        </div>
-        <ul class="mt-3 text-slate-300 text-sm list-disc pl-5 space-y-1">
-          <li>Laravel records system; wireframes; IT support.</li>
-        </ul>
-      </div>
+      @endforeach
     </div>
   </div>
 </section>
 
+<!-- Projects Section -->
 <section id="projects" class="py-20">
   <div class="max-w-6xl mx-auto px-4">
     <h2 class="text-2xl font-semibold mb-10">Projects</h2>
     <div class="grid md:grid-cols-3 gap-6">
-      <a href="https://portal.nlas.go.ke/login" target="_blank" class="project-card">
-        <div class="project-body"><h3 class="font-semibold">National Legal Aid Service</h3><p class="text-slate-400 text-sm">Django, Figma</p></div>
+      @foreach([
+        ['title'=>'National Legal Aid Service','link'=>'https://portal.nlas.go.ke/login','tech'=>'Django, Figma'],
+        ['title'=>'Waste Assistant (IoT)','link'=>'https://github.com/afrochic/waste_assistant.git','tech'=>'Arduino, Android, Firebase'],
+        ['title'=>'CorkBrick Game','link'=>'https://corkbrick.com/pages/corkbrick-play','tech'=>'Unity, Blender, Figma'],
+        ['title'=>'Clone Technologies Website','link'=>'http://clone-technologies.com/','tech'=>'Laravel, Figma'],
+        ['title'=>'Afro Chitchat — Chat App','link'=>'https://github.com/afrochic/afrochicChat.git','tech'=>'Android, Firebase']
+      ] as $proj)
+      <a href="{{$proj['link']}}" target="_blank" class="project-card">
+        <div class="project-body">
+          <h3 class="font-semibold">{{$proj['title']}}</h3>
+          <p class="text-slate-400 text-sm">{{$proj['tech']}}</p>
+        </div>
       </a>
-      <a href="https://github.com/afrochic/waste_assistant.git" target="_blank" class="project-card">
-        <div class="project-body"><h3 class="font-semibold">Waste Assistant (IoT)</h3><p class="text-slate-400 text-sm">Arduino, Android, Firebase</p></div>
-      </a>
-      <a href="https://corkbrick.com/pages/corkbrick-play" target="_blank" class="project-card">
-        <div class="project-body"><h3 class="font-semibold">CorkBrick Game</h3><p class="text-slate-400 text-sm">Unity, Blender, Figma</p></div>
-      </a>
-      <a href="http://clone-technologies.com/" target="_blank" class="project-card">
-        <div class="project-body"><h3 class="font-semibold">Clone Technologies Website</h3><p class="text-slate-400 text-sm">Laravel, Figma</p></div>
-      </a>
-      <a href="https://github.com/afrochic/afrochicChat.git" target="_blank" class="project-card">
-        <div class="project-body"><h3 class="font-semibold">Afro Chitchat — Chat App</h3><p class="text-slate-400 text-sm">Android, Firebase</p></div>
-      </a>
+      @endforeach
     </div>
   </div>
 </section>
 
+<!-- Skills Section -->
 <section id="skills" class="py-20">
   <div class="max-w-6xl mx-auto px-4">
     <h2 class="text-2xl font-semibold mb-6">Skills</h2>
@@ -139,6 +122,7 @@
   </div>
 </section>
 
+<!-- Contact Section -->
 <section id="contact" class="py-20">
   <div class="max-w-4xl mx-auto px-4">
     <div class="rounded-3xl bg-slate-900 border border-white/5 p-8">

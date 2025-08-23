@@ -4,19 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>@yield('title','Diana Musee | Software Engineer · UI/UX')</title>
+
+  <!-- TailwindCSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- AlpineJS -->
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <!-- GSAP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="{{ asset('assets/css/portfolio.css') }}">
 </head>
 <body class="bg-slate-950 text-slate-100 font-[Poppins] antialiased">
+
   <!-- Scroll progress -->
   <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-[var(--accent)] z-50" style="width:0"></div>
 
+  <!-- Header -->
   <header class="fixed top-0 left-0 right-0 z-40 backdrop-blur bg-slate-950/60 border-b border-white/5">
     <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
       <a href="{{ route('home') }}" class="text-xl font-semibold tracking-wide">Diana<span class="text-[var(--accent)]">.</span></a>
@@ -47,22 +57,23 @@
     </div>
   </header>
 
+  <!-- Main Content -->
   <main class="pt-24">
     @yield('content')
   </main>
 
+  <!-- Footer -->
   <footer class="border-t border-white/5 mt-20">
-    <div class="max-w-6xl mx-auto px-4 py-10 text-sm text-slate-400">
-      <div class="flex items-center justify-between">
-        <p>© {{ date('Y') }} Diana Musee. All rights reserved.</p>
-        <div class="flex gap-4">
-          <a href="http://linkedin.com/in/diana-musee-8798ba174" target="_blank" class="hover:text-white">LinkedIn</a>
-          <a href="http://github.com/afrochic__" target="_blank" class="hover:text-white">GitHub</a>
-        </div>
+    <div class="max-w-6xl mx-auto px-4 py-10 text-sm text-slate-400 flex justify-between">
+      <p>© {{ date('Y') }} Diana Musee. All rights reserved.</p>
+      <div class="flex gap-4">
+        <a href="http://linkedin.com/in/diana-musee-8798ba174" target="_blank" class="hover:text-white">LinkedIn</a>
+        <a href="http://github.com/afrochic__" target="_blank" class="hover:text-white">GitHub</a>
       </div>
     </div>
   </footer>
 
+  <!-- Scripts -->
   <script src="{{ asset('assets/js/portfolio.js') }}"></script>
 </body>
 </html>
