@@ -127,7 +127,7 @@
   <div class="max-w-4xl mx-auto px-4">
     <div class="rounded-3xl bg-slate-900 border border-white/5 p-8">
       <h2 class="text-2xl font-semibold">Let’s Build Something</h2>
-      <form class="mt-6 grid md:grid-cols-2 gap-4" method="POST" action="https://formspree.io/f/YOUR_FORM_ID">
+      <form class="mt-6 grid md:grid-cols-2 gap-4" method="POST" action="https://formspree.io/f/mblknnby">
         <input type="hidden" name="_subject" value="Portfolio Contact — Diana Musee">
         <div>
           <label class="block text-sm mb-2">Name</label>
