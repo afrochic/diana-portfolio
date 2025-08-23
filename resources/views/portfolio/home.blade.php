@@ -9,7 +9,7 @@
     <div class="flex justify-center md:justify-start">
       <div class="relative">
         <div class="absolute -inset-1 rounded-full bg-[var(--accent)] blur-2xl opacity-20"></div>
-        <img src="{{ asset('assets/images/profile.jpg') }}" alt="Diana Musee" class="relative w-48 h-48 md:w-56 md:h-56 rounded-full border-4 border-[var(--accent)] object-cover shadow-xl">
+        <img src="{{ asset('assets/images/dee.jpeg') }}" alt="Diana Musee" class="relative w-48 h-48 md:w-56 md:h-56 rounded-full border-4 border-[var(--accent)] object-cover shadow-xl">
       </div>
     </div>
     <div>
