@@ -38,8 +38,6 @@
         <a href="#contact" class="hover:text-white">Contact</a>
       </nav>
       <div class="flex items-center gap-3">
-        <input id="accent-picker" type="color" class="w-8 h-8 rounded-full overflow-hidden border border-white/10 cursor-pointer" title="Accent color" />
-        <button id="theme-toggle" class="px-3 py-2 rounded-xl border border-white/10 hover:bg-white/5">🌙</button>
         <a href="{{ asset('assets/docs/resume.pdf') }}" download class="hidden md:inline-flex px-4 py-2 rounded-full bg-[var(--accent)] hover:opacity-90 transition">Download Resume</a>
       </div>
       <button class="md:hidden" x-data @click="$dispatch('open-mobile')">

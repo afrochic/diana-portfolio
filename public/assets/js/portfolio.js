@@ -27,54 +27,81 @@ document.addEventListener('DOMContentLoaded', function() {
     if(el) el.addEventListener('input', e=>setAccent(e.target.value));
   });
 
-  // Scroll progress
-  const bar = document.getElementById('scroll-progress');
+  // Scroll progress / XP bar
+  const xpBar = document.getElementById('xp-progress');
   function updateScroll(){ 
     const h=document.documentElement; 
-    if(bar) bar.style.width = (h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'; 
+    if(xpBar) xpBar.style.width = (h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'; 
   }
   document.addEventListener('scroll', updateScroll, {passive:true}); 
   updateScroll();
 
-  // Particles
+  // Game-like particles
   const canvas = document.getElementById('particles');
   if(canvas){
     const ctx = canvas.getContext('2d'); 
     let w,h,particles;
     function resize(){ 
-      w=canvas.width=canvas.offsetWidth; 
-      h=canvas.height=canvas.offsetHeight; 
-      particles=Array.from({length:60},()=>({
+      w=canvas.width=window.innerWidth; 
+      h=canvas.height=window.innerHeight; 
+      particles=Array.from({length:120},()=>({
         x:Math.random()*w,
         y:Math.random()*h,
-        vx:(Math.random()-0.5)*0.5,
-        vy:(Math.random()-0.5)*0.5,
-        r:1+Math.random()*2
+        vx:(Math.random()-0.5)*2,
+        vy:(Math.random()-0.5)*2,
+        r:2+Math.random()*3,
+        color:`hsl(${Math.random()*360},100%,60%)`
       })); 
     }
     window.addEventListener('resize',resize); 
     resize();
+
+    let mouse = {x:null, y:null};
+    canvas.addEventListener('mousemove', e=>{
+      mouse.x = e.x; mouse.y = e.y;
+      // spawn a particle near cursor
+      particles.push({
+        x:mouse.x,
+        y:mouse.y,
+        vx:(Math.random()-0.5)*2,
+        vy:(Math.random()-0.5)*2,
+        r:2+Math.random()*3,
+        color:`hsl(${Math.random()*360},100%,60%)`
+      });
+      if(particles.length > 200) particles.shift();
+    });
+
     function step(){ 
-      ctx.clearRect(0,0,w,h); 
-      ctx.fillStyle=getComputedStyle(root).getPropertyValue('--accent')||'#a855f7'; 
-      particles.forEach(p=>{
-        p.x+=p.vx; p.y+=p.vy;
-        if(p.x<0||p.x>w) p.vx*=-1;
-        if(p.y<0||p.y>h) p.vy*=-1;
-        ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill();
-      }); 
-      requestAnimationFrame(step);
-    }
+  ctx.clearRect(0,0,w,h); // <-- keeps it transparent
+  ctx.fillStyle = getComputedStyle(root).getPropertyValue('--accent') || '#a855f7'; 
+  particles.forEach(p=>{
+    p.x += p.vx; 
+    p.y += p.vy;
+    if(p.x < 0 || p.x > w) p.vx *= -1;
+    if(p.y < 0 || p.y > h) p.vy *= -1;
+    ctx.beginPath(); 
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2); 
+    ctx.fill();
+  }); 
+  requestAnimationFrame(step);
+}
+
     step();
   }
 
-  // GSAP animations
+  // Welcome text animation
+  const welcomeText = document.getElementById('welcome-text');
+  if(welcomeText && window.gsap){
+    gsap.to(welcomeText, {opacity:1, y:10, duration:1, repeat:-1, yoyo:true, ease:'power1.inOut'});
+  }
+
+  // GSAP animations for sections
   if(window.gsap && window.ScrollTrigger){
     const gsap = window.gsap; 
     const ScrollTrigger = window.ScrollTrigger; 
     gsap.registerPlugin(ScrollTrigger);
 
-    // Timeline cards
+    // Timeline cards fade in
     gsap.utils.toArray('.timeline-card').forEach((el,i)=>{
       gsap.from(el,{
         opacity:0, 
@@ -85,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
 
-    // Skill rings
+    // Skill rings bounce on click
     document.querySelectorAll('.skill-ring').forEach(ring=>{
       ring.addEventListener('click',()=>{ 
         gsap.to(ring,{y:-8,duration:0.12,yoyo:true,repeat:1,ease:'power2.out'}); 
@@ -94,4 +121,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     ScrollTrigger.refresh();
   }
+
+  // Achievements
+  window.showAchievement = function(text){
+    const el = document.getElementById('achievement');
+    if(el){
+      el.innerText = "🏆 " + text;
+      el.classList.remove('hidden');
+      setTimeout(()=> el.classList.add('hidden'),3000);
+    }
+  };
 });
