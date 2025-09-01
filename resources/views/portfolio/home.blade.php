@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Diana Musee | Software Engineer · UI/UX')
+@section('title','Diana Musee | Software Engineer · Data Scientist · UI/UX')
 @section('content')
 
 <!-- XP / Level Bar -->
@@ -23,10 +23,10 @@
     <div>
       <p class="uppercase text-xs tracking-widest text-slate-400">Nairobi, Kenya</p>
       <h1 class="mt-3 text-4xl md:text-6xl font-bold leading-tight">
-        <span class="typing">Software Engineer</span> <span class="text-[var(--accent)]">&</span> UI/UX Designer
+        <span class="typing">Software Engineer</span>, <span class="typing">Data Scientist</span> <span class="text-[var(--accent)]">&</span> UI/UX Designer
       </h1>
       <p class="mt-4 text-slate-300">
-        I design and build delightful, data-informed products. From chatbots and dashboards to mobile apps and games.
+        Innovative developer & scientist building scalable apps, chatbots, dashboards, and data-driven solutions that transform businesses.
       </p>
       <div class="mt-6 flex gap-3">
         <a href="#projects" class="px-5 py-3 rounded-full bg-[var(--accent)] hover:opacity-90">See Projects</a>
@@ -43,12 +43,13 @@
       <div class="rounded-3xl bg-slate-900 p-8 h-full">
         <h2 class="text-2xl font-semibold">Quest 1: Who Am I</h2>
         <p class="mt-4 text-slate-300">
-          Software Developer & Graphic Designer experienced in Python (Django), Java, Laravel/PHP, UI/UX & Data Analytics.
+          Software Developer & Data Scientist experienced in Python (Django/Flask), Java (Spring Boot), PHP (Laravel), React/Next.js, cloud deployments (Azure, Docker), and UI/UX design.
         </p>
         <ul class="mt-6 space-y-2 text-slate-300 text-sm">
-          <li>• Predictive & prescriptive analytics</li>
-          <li>• Interactive dashboards & UX prototyping</li>
-          <li>• Omnichannel data integration</li>
+          <li>• Predictive & prescriptive analytics with TensorFlow & PyTorch</li>
+          <li>• REST APIs, microservices, multithreaded pipelines</li>
+          <li>• Interactive dashboards & BI (Power BI, Tableau)</li>
+          <li>• Omnichannel data integration (Airflow, NiFi, MLflow)</li>
         </ul>
       </div>
     </div>
@@ -59,9 +60,12 @@
           ['name'=>'Python','icon'=>'🐍'],
           ['name'=>'Java','icon'=>'☕'],
           ['name'=>'Laravel','icon'=>'💻'],
-          ['name'=>'Figma','icon'=>'🎨'],
+          ['name'=>'React/Next.js','icon'=>'⚛️'],
           ['name'=>'Power BI','icon'=>'📊'],
-          ['name'=>'SQL','icon'=>'🗄️']
+          ['name'=>'TensorFlow','icon'=>'🧠'],
+          ['name'=>'PyTorch','icon'=>'🔥'],
+          ['name'=>'Docker','icon'=>'🐳'],
+          ['name'=>'Azure','icon'=>'☁️']
         ] as $tool)
         <div class="skill-ring flex flex-col items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-300">
           <div class="text-4xl">{{$tool['icon']}}</div>
@@ -84,10 +88,19 @@
     <h2 class="text-2xl font-semibold mb-10">Quest 2: Battle Experience</h2>
     <div class="space-y-6">
       @foreach([
-        ['title'=>'Software Developer / Graphic Designer — Pathways Technologies','time'=>'Mar 2023 – Present · Nairobi, Kenya','points'=>['Python/Django, Java, SQL; scalable systems.','Kenya Red Cross chatbot; boosted engagement.','Power BI dashboards; predictive/prescriptive analytics.']],
-        ['title'=>'Software Developer Intern — CorkBrick Europe (Remote)','time'=>'May 2022 – Nov 2022','points'=>['Unity game dev; auth/inventory; UI/UX in Figma.']],
-        ['title'=>'Embedded Systems Intern — Emertxe (Remote)','time'=>'Feb 2022 – May 2022','points'=>['IoT simulation for smart washer; sensor analytics.']],
-        ['title'=>'IT Officer Intern — Office of the Attorney General (Kenya)','time'=>'Feb 2021 – Apr 2021','points'=>['Laravel records system; wireframes; IT support.']]
+        ['title'=>'Software Developer — Pathways Technologies','time'=>'Mar 2023 – Present · Nairobi, Kenya','points'=>[
+          'Serengeti Energy: Laravel app for renewable project management.',
+          'Kenya Red Cross: ChatCare chatbot (NLP, UI/UX).',
+          'IQRAF: PowerApps + Laravel project management system.',
+          'National Bank of Kenya: Data Science & Power BI training.',
+          'Minet Insurance: Spring Boot microservice for notifications.',
+          'Bonafide Bank: Core Banking (Java) — transactions & reporting.',
+          'Centenary Bank: Fraud detection & real-time reporting microservices.',
+          'InsightGrid: Next.js + BI platform for dashboard embedding.'
+        ]],
+        ['title'=>'Software Developer Intern — CorkBrick Europe (Remote)','time'=>'May 2022 – Nov 2022','points'=>['Unity game system; UI/UX in Figma; database & auth system.']],
+        ['title'=>'Embedded Systems Intern — Emertxe (Remote)','time'=>'Feb 2022 – May 2022','points'=>['IoT smart washer simulation; sensor analytics.']],
+        ['title'=>'IT Officer Intern — Office of the Attorney General (Kenya)','time'=>'Feb 2021 – Apr 2021','points'=>['Laravel records system; wireframes in Figma; IT support.']]
       ] as $exp)
       <div class="timeline-card p-6 rounded-2xl bg-slate-800 border border-white/10 cursor-pointer hover:scale-105 transition-transform" onclick="showAchievement('Unlocked Experience: {{$exp['title']}}'); gainXP(15)">
         <div>
@@ -115,7 +128,9 @@
         ['title'=>'Waste Assistant (IoT)','link'=>'https://github.com/afrochic/waste_assistant.git','tech'=>'Arduino, Android, Firebase','icon'=>'♻️'],
         ['title'=>'CorkBrick Game','link'=>'https://corkbrick.com/pages/corkbrick-play','tech'=>'Unity, Blender, Figma','icon'=>'🕹️'],
         ['title'=>'Clone Technologies Website','link'=>'http://clone-technologies.com/','tech'=>'Laravel, Figma','icon'=>'🌐'],
-        ['title'=>'Afro Chitchat — Chat App','link'=>'https://github.com/afrochic/afrochicChat.git','tech'=>'Android, Firebase','icon'=>'💬']
+        ['title'=>'Afro Chitchat — Chat App','link'=>'https://github.com/afrochic/afrochicChat.git','tech'=>'Android, Firebase','icon'=>'💬'],
+        ['title'=>'Kenya Red Cross ChatCare','link'=>'https://www.redcross.or.ke/','tech'=>'Chatbot, NLP, UI/UX','icon'=>'🚑'],
+        ['title'=>'InsightGrid Analytics','link'=>'#','tech'=>'Next.js, Power BI, Tableau','icon'=>'📈']
       ] as $proj)
       <a href="{{$proj['link']}}" target="_blank" class="project-card p-6 rounded-2xl bg-slate-800 border border-white/10 flex flex-col items-center justify-center cursor-pointer hover:scale-105 transition-transform" onclick="showAchievement('Loot Collected: {{$proj['title']}}'); gainXP(20)">
         <div class="text-5xl">{{$proj['icon']}}</div>
@@ -140,23 +155,37 @@
         ['name'=>'Java','icon'=>'☕'],
         ['name'=>'PHP','icon'=>'🐘'],
         ['name'=>'C++','icon'=>'💠'],
-        ['name'=>'JavaScript','icon'=>'🟨'],
+        ['name'=>'JavaScript (React/Next.js)','icon'=>'⚛️'],
         ['name'=>'Power BI','icon'=>'📊'],
-        ['name'=>'Azure','icon'=>'☁️'],
-        ['name'=>'Databricks','icon'=>'🔥'],
-        ['name'=>'Figma','icon'=>'🎨'],
         ['name'=>'Tableau','icon'=>'📈'],
-        ['name'=>'GitHub','icon'=>'🐱'],
-        ['name'=>'Firebase','icon'=>'🔥'],
-        ['name'=>'Android Studio','icon'=>'🤖'],
-        ['name'=>'Unity','icon'=>'🕹️'],
-        ['name'=>'AWS','icon'=>'☁️']
+        ['name'=>'Azure','icon'=>'☁️'],
+        ['name'=>'Docker','icon'=>'🐳'],
+        ['name'=>'Airflow','icon'=>'🌬️'],
+        ['name'=>'NiFi','icon'=>'🔗'],
+        ['name'=>'MLflow','icon'=>'📒'],
+        ['name'=>'TensorFlow','icon'=>'🧠'],
+        ['name'=>'PyTorch','icon'=>'🔥'],
+        ['name'=>'Figma','icon'=>'🎨'],
+        ['name'=>'GitHub','icon'=>'🐱']
       ] as $s)
       <div class="flex flex-col items-center justify-center cursor-pointer p-2 bg-slate-800 rounded-xl border border-white/10 hover:scale-110 transition-transform" onclick="showAchievement('Skill Unlocked: {{$s['name']}}'); gainXP(10)">
         <div class="text-2xl">{{$s['icon']}}</div>
         <span class="text-xs mt-1 text-slate-300">{{$s['name']}}</span>
       </div>
       @endforeach
+    </div>
+  </div>
+</section>
+
+<!-- Education / Quest 5 -->
+<section id="education" class="py-20 quest-section">
+  <div class="max-w-4xl mx-auto px-4">
+    <div class="rounded-3xl bg-slate-900 border border-white/5 p-8">
+      <h2 class="text-2xl font-semibold">Quest 5: Knowledge Scrolls</h2>
+      <ul class="mt-6 space-y-3 text-slate-300 text-sm">
+        <li><strong>MSc in Data Science & Analytics</strong> — Strathmore University, Nairobi (May 2025 – Present)</li>
+        <li><strong>BSc in Informatics & Computer Science</strong> — Strathmore University, Nairobi (Apr 2018 – Jan 2022)</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -215,7 +244,6 @@ let level = 1;
 function gainXP(amount) {
   xp += amount;
   const xpBar = document.getElementById('xp-progress');
-  const levelIndicator = document.getElementById('level-indicator');
   const maxXP = 100;
   if (xp >= maxXP) {
     level++;
@@ -223,7 +251,6 @@ function gainXP(amount) {
     showAchievement(`Level Up! 🎉 Level ${level}`);
   }
   xpBar.style.width = `${xp}%`;
-  levelIndicator.innerText = `Level ${level}`;
 }
 
 // Achievement Popup
@@ -294,7 +321,6 @@ function particleBurst(x,y){
     });
   }
 }
-
 </script>
 
 @endsection

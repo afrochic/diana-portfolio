@@ -38,7 +38,7 @@
         <a href="#contact" class="hover:text-white">Contact</a>
       </nav>
       <div class="flex items-center gap-3">
-        <a href="{{ asset('assets/docs/resume.pdf') }}" download class="hidden md:inline-flex px-4 py-2 rounded-full bg-[var(--accent)] hover:opacity-90 transition">Download Resume</a>
+        <a href="{{ asset('assets/docs/diana.pdf') }}" download class="hidden md:inline-flex px-4 py-2 rounded-full bg-[var(--accent)] hover:opacity-90 transition">Download Resume</a>
       </div>
       <button class="md:hidden" x-data @click="$dispatch('open-mobile')">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
